@@ -25,4 +25,14 @@ void foreach_permutation(T & xs, F f) {
   }
 }
 
+template <typename T>
+ostream & operator<<(ostream & out, const vector<T> & xs) {
+  size_t n = xs.size();
+  for (size_t i = 0; i < n; i++) {
+    if (i != 0) out << " ";
+    out << xs[i];
+  }
+  return out;
+}
+
 #endif
