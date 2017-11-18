@@ -35,4 +35,35 @@ ostream & operator<<(ostream & out, const vector<T> & xs) {
   return out;
 }
 
+template <typename T>
+T modpow(T base, T exp, T modulus) {
+  base %= modulus;
+  T result = 1;
+  while (exp > 0) {
+    if (exp & 1) result = (result * base) % modulus;
+    base = (base * base) % modulus;
+    exp >>= 1;
+  }
+  return result;
+}
+
+// Returns modulo inverse of a with respect to m using extended Euclid Algorithm
+// Assumption: a and m are coprimes, i.e., gcd(a, m) = 1
+template <typename T>
+T modinv(T a, T m) {
+  if (m == 1) return 0;
+  T m0 = m, t, q;
+  T x0 = 0, x1 = 1;
+  while (a > 1) {
+    q = a / m;
+    t = m;
+    m = a % m, a = t;
+    t = x0;
+    x0 = x1 - q * x0;
+    x1 = t;
+  }
+  if (x1 < 0) x1 += m0;
+  return x1;
+}
+
 #endif
