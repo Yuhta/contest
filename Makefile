@@ -4,7 +4,8 @@ TESTS := $(addprefix test-,$(notdir $(wildcard tests/input/*)))
 
 .PHONY: test $(TESTS)
 
-main: main.cc
+main: main.cc *.hh
+	$(CXX) $(CXXFLAGS) $(LDFLAGS) $< -o $@
 
 test: $(TESTS)
 	@diff -r tests/actual tests/expected
