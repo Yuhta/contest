@@ -1,6 +1,8 @@
 #include <bits/stdc++.h>
 
-#define ensure(x) if (!(x)) abort()
+void ensure(bool p) {
+  if (!p) abort();
+}
 
 using namespace std;
 using ll = long long;
