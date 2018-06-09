@@ -1,7 +1,5 @@
-#include <bits/stdc++.h>
-
-using namespace std;
-using ll = long long;
+#include <cinttypes>
+#include <cstdio>
 
 int main() {
   return 0;
