@@ -8,7 +8,7 @@
 #ifdef NDEBUG
 #  define pr(...)
 #else
-#  define pr(...) printf(__VA_ARGS__)
+#  define pr(...) fprintf(stderr, __VA_ARGS__)
 #endif
 
 using namespace std;
