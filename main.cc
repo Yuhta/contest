@@ -6,6 +6,7 @@
 #include <cassert>
 #include <cinttypes>
 #include <cstdio>
+#include <vector>
 
 #ifdef NDEBUG
 #  define debug(...)
