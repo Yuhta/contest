@@ -6,9 +6,9 @@
 #include <cstdio>
 
 #ifdef NDEBUG
-#  define pr(...)
+#  define debug(...)
 #else
-#  define pr(...)                                   \
+#  define debug(...)                                \
   do {                                              \
     fprintf(stderr, "%s:%d: ", __FILE__, __LINE__); \
     fprintf(stderr, __VA_ARGS__);                   \
