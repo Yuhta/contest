@@ -8,7 +8,12 @@
 #ifdef NDEBUG
 #  define pr(...)
 #else
-#  define pr(...) fprintf(stderr, __VA_ARGS__)
+#  define pr(...)                                   \
+  do {                                              \
+    fprintf(stderr, "%s:%d: ", __FILE__, __LINE__); \
+    fprintf(stderr, __VA_ARGS__);                   \
+    putchar('\n');                                  \
+  } while (false)
 #endif
 
 using namespace std;
