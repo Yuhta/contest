@@ -12,7 +12,7 @@
   do {                                              \
     fprintf(stderr, "%s:%d: ", __FILE__, __LINE__); \
     fprintf(stderr, __VA_ARGS__);                   \
-    putchar('\n');                                  \
+    fputc('\n', stderr);                            \
   } while (false)
 #endif
 
