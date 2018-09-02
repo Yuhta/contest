@@ -5,6 +5,7 @@
 #include <cassert>
 #include <cinttypes>
 #include <cstdio>
+#include <tuple>
 #include <vector>
 
 #ifdef NDEBUG
