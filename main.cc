@@ -20,6 +20,7 @@
 #endif
 
 using namespace std;
+using tii = tuple<int, int>;
 
 int main() {
   return 0;
