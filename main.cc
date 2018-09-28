@@ -30,5 +30,6 @@ ostream & operator<<(ostream & out, vector<A> xs) {
 int main() {
   ios_base::sync_with_stdio(false);
   cin.tie(0);
+  cout << fixed;
   return 0;
 }
