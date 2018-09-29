@@ -1,12 +1,6 @@
 #define NDEBUG
 
-#include <algorithm>
-#include <cassert>
-#include <cstdint>
-#include <iostream>
-#include <tuple>
-#include <utility>
-#include <vector>
+#include <bits/stdc++.h>
 
 using namespace std;
 using pii = pair<int, int>;
