@@ -5,10 +5,11 @@
 #include <cstdint>
 #include <iostream>
 #include <tuple>
+#include <utility>
 #include <vector>
 
 using namespace std;
-using tii = tuple<int, int>;
+using pii = pair<int, int>;
 
 #ifdef NDEBUG
 #  define debug(...)
