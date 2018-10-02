@@ -14,6 +14,10 @@ string to_string(const char * s) {
   return ans;
 }
 
+string to_string(char * s) {
+  return to_string((const char *)s);
+}
+
 string to_string(const string & s) {
   return to_string(s.c_str());
 }
