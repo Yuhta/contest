@@ -22,6 +22,10 @@ string to_string(const string & s) {
   return to_string(s.c_str());
 }
 
+string to_string(char c) {
+  return string("'") + c + '\'';
+}
+
 template <typename A, typename B>
 string to_string(const pair<A, B> & kv) {
   return "{" + to_string(kv.first) + "," + to_string(kv.second) + "}";
