@@ -3,7 +3,6 @@
 #include <bits/stdc++.h>
 
 using namespace std;
-using pii = pair<int, int>;
 
 #ifdef NDEBUG
 #  define debug(...)
@@ -11,7 +10,11 @@ using pii = pair<int, int>;
 #  include "debug.hh"
 #endif
 
-int main() {
+int static_init = []() {
   ios_base::sync_with_stdio(false), cin.tie(0), cout << fixed;
+  return 0;
+}();
+
+int main() {
   return 0;
 }
