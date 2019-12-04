@@ -1,5 +1,5 @@
 CXX := g++
-CXXFLAGS := -std=c++11 -Wall -Wextra -g -O2 -fsanitize=address -fsanitize=undefined
+CXXFLAGS := -std=c++11 -Wall -Wextra -g -O2 -fsanitize=address,undefined
 TESTS := $(addprefix test-,$(notdir $(wildcard tests/input/*)))
 
 main:
