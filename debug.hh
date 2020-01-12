@@ -1,5 +1,4 @@
-#ifndef _DEBUG_HH_
-#define _DEBUG_HH_
+#pragma once
 
 #define debug(...) \
   cerr << __FILE__ << ":" << __LINE__ << ": {" << #__VA_ARGS__ << "} = ", _debug(__VA_ARGS__)
@@ -24,6 +23,10 @@ string to_string(const string & s) {
 
 string to_string(char c) {
   return string("'") + c + '\'';
+}
+
+string to_string(bool x) {
+  return to_string((int)x);
 }
 
 template <typename A, typename B>
@@ -59,5 +62,3 @@ void _debug(Head h, Tail... t) {
   cerr << '{' << to_string(h);
   _debug2(t...);
 }
-
-#endif
