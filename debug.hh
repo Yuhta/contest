@@ -1,64 +1,36 @@
 #pragma once
 
-#define debug(...) \
-  cerr << __FILE__ << ":" << __LINE__ << ": {" << #__VA_ARGS__ << "} = ", _debug(__VA_ARGS__)
+#include <ostream>
 
-string to_string(const char * s) {
-  string ans = "\"";
-  for (int i = 0; s[i]; i++) {
-    if (s[i] == '"') ans += "\\\"";
-    else ans += s[i];
+#define DEBUG(x) ::std::cerr << __FILE__ ":" << __LINE__ << ": " << x << ::std::endl
+
+template <typename Iterator>
+struct Iterable {
+  Iterable(Iterator first, Iterator last): first_(first), last_(last) {
   }
-  ans += '"';
-  return ans;
+private:
+  Iterator first_, last_;
+  template <typename Iterator2>
+  friend std::ostream& operator<<(std::ostream&, const Iterable<Iterator2>&);
+};
+
+template <typename Iterator>
+Iterable<Iterator> MakeIterable(Iterator first, Iterator last) {
+  return Iterable<Iterator>(first, last);
 }
 
-string to_string(char * s) {
-  return to_string((const char *)s);
-}
-
-string to_string(const string & s) {
-  return to_string(s.c_str());
-}
-
-string to_string(char c) {
-  return string("'") + c + '\'';
-}
-
-string to_string(bool x) {
-  return to_string((int)x);
-}
-
-template <typename A, typename B>
-string to_string(const pair<A, B> & kv) {
-  return "{" + to_string(kv.first) + "," + to_string(kv.second) + "}";
-}
-
-template <typename A>
-string to_string(const A & xs) {
-  string ans = "{";
-  bool first = true;
-  for (const auto & x: xs) {
-    if (!first) ans += ',';
-    first = false;
-    ans += to_string(x);
+template <typename Iterator>
+std::ostream& operator<<(std::ostream& out, const Iterable<Iterator>& xs) {
+  out << '{';
+  for (Iterator it = xs.first_; it != xs.last_; it++) {
+    if (it != xs.first_) out << ',';
+    out << *it;
   }
-  ans += '}';
-  return ans;
+  out << '}';
+  return out;
 }
 
-void _debug2() {
-  cerr << '}' << endl;
-}
-
-template <typename Head, typename... Tail>
-void _debug2(Head h, Tail... t) {
-  cerr << ", " << to_string(h);
-  _debug2(t...);
-}
-
-template <typename Head, typename... Tail>
-void _debug(Head h, Tail... t) {
-  cerr << '{' << to_string(h);
-  _debug2(t...);
+template <typename T1, typename T2>
+std::ostream& operator<<(std::ostream& out, const std::pair<T1, T2>& xs) {
+  return out << '{' << xs.first << ',' << xs.second << '}';
 }

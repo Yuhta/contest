@@ -1,14 +1,14 @@
 #define NDEBUG
 
-#include <bits/stdc++.h>
-
-using namespace std;
-
 #ifdef NDEBUG
-#  define debug(...)
+#  define DEBUG(...)
 #else
 #  include "debug.hh"
 #endif
+
+#include <bits/stdc++.h>
+
+using namespace std;
 
 int static_init = []() {
   ios_base::sync_with_stdio(false), cin.tie(0), cout << fixed;
