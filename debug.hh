@@ -2,6 +2,7 @@
 
 #include <ostream>
 #include <tuple>
+#include <vector>
 
 #define DEBUG(x) ::std::cerr << __FILE__ ":" << __LINE__ << ": " << x << ::std::endl
 
@@ -50,4 +51,9 @@ std::ostream& operator<<(std::ostream& out, const std::tuple<Types...>& xs) {
   out << '{';
   PrintTuple(out, xs, debug::MakeIndexSequence<sizeof...(Types)>{});
   return out << '}';
+}
+
+template <typename T>
+std::ostream& operator<<(std::ostream& out, const std::vector<T>& xs) {
+  return out << Iterable(xs.begin(), xs.end());
 }
