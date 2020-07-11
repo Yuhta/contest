@@ -57,3 +57,8 @@ template <typename T>
 std::ostream& operator<<(std::ostream& out, const std::vector<T>& xs) {
   return out << Iterable(xs.begin(), xs.end());
 }
+
+template <typename T1, typename T2>
+std::ostream& operator<<(std::ostream& out, const std::pair<T1, T2>& xs) {
+  return out << '{' << xs.first << ',' << xs.second << '}';
+}
