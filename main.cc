@@ -10,10 +10,9 @@
 
 using namespace std;
 
-int static_init = []() {
+__attribute__((constructor)) void Init() {
   ios_base::sync_with_stdio(false), cin.tie(0), cout << fixed;
-  return 0;
-}();
+}
 
 int main() {
   return 0;
